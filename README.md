@@ -1,5 +1,7 @@
+
 # mdlinks 
 ` Analizador de enlaces en archivos Markdown`
+
 
 ## Índice
 
@@ -50,9 +52,11 @@ Podemos observar que me entrega las propiedades mencionadas.
 - href: https://www.google.com
 - texto: Google
 
+
 ##### Podemos realizar busquedas de directorios y de subdirectorios  y de igual manera acceder a sus enlaces.
 
 ######  Ejemplo:
+
 
 **mdlinks ./example**
 accedimos a 2 subdirectorios del directorio example y a sus enlaces.
@@ -61,12 +65,9 @@ C:\Users\anonimo\Desktop\Proyecto\md-links\example\archivodeprueba.md
 ./example https://www.google.com Google
 
 C:\Users\anonimo\Desktop\Proyecto\md-links\example \subfiles\file2.md
-./example https://twitter.com/ Twitter 
 
 C:\Users\anonimo\Desktop\Proyecto\md-links\example \subdos\prueba1.md
-./example https://www.google.com Google 
-
-
+./example https://www.google.com Google
 
 
 
@@ -74,6 +75,7 @@ C:\Users\anonimo\Desktop\Proyecto\md-links\example \subdos\prueba1.md
 #### Opciones
 
 Puedes usar las opciones  `--validate `para verificar la validez de los enlaces y`--stats`para obtener estadísticas sobre los enlaces.
+
 
 Si pasamos la opción `--validate` el módulo debe hacer una petición HTTP para averiguar si el link funciona o no. Si el link resulta en una redirección a una URL que responde ok, entonces consideraremos el link como ok.
 
@@ -103,6 +105,7 @@ También podemos combinar` --validate` y `--stats` para obtener estadísticas qu
 
  mdlinks ./example/archivodeprueba.md `--validate` `--stats`
 
+
 - Enlaces válidos: 3
 - Enlaces rotos: 0
 - Cantidad de links: 3
@@ -119,4 +122,5 @@ También podemos combinar` --validate` y `--stats` para obtener estadísticas qu
 | `mdlinks `   | **Para comenzar a utilizar** escribir el comando mdlinks (espacio) y el archivo/directorio queremos revisar    |
 |   ` --validate `  | Para verificar la validez de los enlaces  (si el link funciona o no)   |
 |   ` --stats `  | Muestra estadísticas sobre los enlaces encontrados en el archivo.   |
+
 

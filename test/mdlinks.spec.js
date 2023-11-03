@@ -45,7 +45,7 @@ describe("mdLinks", () => {
   });
 
   it("debería resolver un arreglo con 3 enlaces para un archivo .md con 3 enlaces", () => {
-    const filePath = "./example/probando3.md";
+    const filePath = "./example/archivodeprueba.md";
     return mdLinks(filePath).then((links) => {
       expect(links).toHaveLength(3); // Verifica que haya 3 enlaces en el archivo
 
@@ -60,7 +60,7 @@ describe("mdLinks", () => {
 
   // Manejo de rutas absolutas
   it("debería manejar rutas absolutas y retornar enlaces", () => {
-    const filePath = path.resolve("./example/probando3.md");
+    const filePath = path.resolve("./example/archivodeprueba.md");
     return mdLinks(filePath).then((links) => {
       expect(links).toHaveLength(3); // Verifica que haya 3 enlaces en el archivo
     });
@@ -103,7 +103,7 @@ describe("mdLinks", () => {
         ok: "ok",
       },
       {
-        href: "https://www.invalid.com",
+        href: "https://www.invalid.",
         text: "Invalid",
         file: filePath,
         status: "N/A",
@@ -113,7 +113,7 @@ describe("mdLinks", () => {
 
     // Mock implementation of fsInstance.promises.readFile
     fsInstance.promises.readFile.mockResolvedValue(
-      "[Google](https://www.google.com) - Enlace a Google\n[Invalid](https://www.invalid.com) - Enlace a Invalid"
+      "[Google](https://www.google.com) - Enlace a Google\n[Invalid](https://www.invalid.) - Enlace a Invalid"
     );
 
     // Mock implementation of axios.get
@@ -130,8 +130,8 @@ describe("mdLinks", () => {
     });
   });
 
-  it("Debe resolverse con un arreglo de objetos que contiene href, texto y propiedades de archivo cuando se le proporciona una ruta de archivo de rebajas válida y la opción de validación es falso", () => {
-    const filePath = "./example/probando3.md";
+  it("Debe resolverse con un arreglo de objetos que contiene href, texto y propiedades de archivo cuando se le proporciona una ruta de archivo válido y la opción de validación es falso", () => {
+    const filePath = "./example/archivodeprueba.md";
     const validate = false;
 
     return mdLinks(filePath, validate).then((result) => {
@@ -163,31 +163,6 @@ describe("mdLinks", () => {
       expect(result.length).toBe(0);
     });
   });
-
-  // it("debería extraer enlaces de archivos .md en un directorio con subdirectorios", () => {
-  //   const filePath = "./example/subfiles";
-  //   const validate = true;
-
-  //   const result = mdLinks(filePath, validate);
-
-  //   expect(result).resolves.toEqual([
-  //     {
-  //       file: "./example/subfiles/file2.md",
-  //       href: "https://www.linkedin.com/",
-  //       text: "Example",
-  //     },
-  //     {
-  //       file: "./example/subfiles",
-  //       href: "https://google.com",
-  //       text: "Google",
-  //     },
-  //     {
-  //       file: "./example/subfiles",
-  //       href: "https://github.com",
-  //       text: "GitHub",
-  //     },
-  //   ]);
-  // });
 });
 
 /* jest.mock("axios"): Esto está reemplazando el módulo axios

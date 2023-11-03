@@ -34,8 +34,8 @@ function displayLink(link, dir = false) {
     chalk.greenBright(filePath),
     chalk.blueBright(link.href),
     chalk.magentaBright(shortenedText),
-    chalk.cyanBright.bold(link.status || "N/A"),
-    chalk.whiteBright.bold(link.ok || "N/A")
+    chalk.cyanBright.bold(link.status || ""),
+    chalk.whiteBright.bold(link.ok || "")
   );
 }
 
